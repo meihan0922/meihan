@@ -14,8 +14,8 @@ const Experience = () => {
         "/lion/lion4.png",
         "/lion/mobile_lion.png",
       ],
-      demo: "https://www.liontravel.com/category/zh-tw/index",
-      code: "https://www.liontravel.com/category/zh-tw/index",
+      demo: "https://62b1df8c95542b865b181c3c-uacrjzemwa.chromatic.com/",
+      code: "https://github.com/meihan0922/ui-kit-storybook",
     },
     {
       name: "Ecommerce",

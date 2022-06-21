@@ -1,4 +1,3 @@
-import { trans1, trans2, trans3, trans4 } from "./path";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { useState, useEffect } from "react";
 
