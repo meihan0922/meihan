@@ -1,6 +1,6 @@
 import { motion, Variants } from "framer-motion";
 
-const WavyText = ({ text }: { text: string }) => {
+const Welcome = ({ text }: { text: string }) => {
   const container: Variants = {
     hidden: {
       opacity: 0,
@@ -14,8 +14,8 @@ const WavyText = ({ text }: { text: string }) => {
       transition: {
         repeat: 1,
         repeatType: "reverse",
-        duration: 2,
-        delayChildren: 0.3,
+        duration: 1,
+        delayChildren: 0.15,
         staggerChildren: 0.1,
         staggerDirection: -1,
       },
@@ -28,13 +28,13 @@ const WavyText = ({ text }: { text: string }) => {
       x: 0,
       y: 0,
       transition: {
-        duration: 1.6,
+        duration: 0.4,
         ease: [0.6, 0.01, -0.05, 0.9],
       },
     },
     hidden: {
       opacity: 0.7,
-      y: 400,
+      y: 200,
     },
   };
 
@@ -59,4 +59,4 @@ const WavyText = ({ text }: { text: string }) => {
   );
 };
 
-export default WavyText;
+export default Welcome;

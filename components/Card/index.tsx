@@ -11,9 +11,9 @@ const Card = () => {
             opacity: 1,
             clipPath: "inset(0 0 0 0%)",
             transition: {
-              delay: 5,
+              delay: 2,
               type: "spring",
-              duration: 0.7,
+              duration: 0.4,
               //   stiffness: 600,
               //   damping: 40,
             },

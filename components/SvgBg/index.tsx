@@ -13,8 +13,8 @@ const SvgBg = () => {
           x: 0,
           scale: 1.2,
           transition: {
-            delay: 0.2,
-            duration: 1.2,
+            // delay: 0.2,
+            duration: 0.8,
           },
         }}
         className="absolute -left-32 -z-10 -top-24"

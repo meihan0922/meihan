@@ -8,9 +8,9 @@ const Info = () => {
       animate={{
         opacity: 1,
         transition: {
-          delay: 5.5,
+          delay: 2.2,
           type: "spring",
-          duration: 0.7,
+          duration: 0.5,
           //   stiffness: 600,
           //   damping: 40,
         },
