@@ -1,16 +1,17 @@
 import { motion, AnimatePresence } from "framer-motion";
+import Info from "./components/Info";
 
 const Card = () => {
   return (
     <>
-      <div className="h-full relative col-span-12 text-base text-center bg-transparent lg:col-span-2">
+      <div className="pt-64 flex-col h-full relative col-span-12 text-base text-center bg-transparent lg:col-span-2">
         <motion.div
           initial={{ opacity: 0, clipPath: "inset(0 0 0 100%)" }}
           animate={{
             opacity: 1,
             clipPath: "inset(0 0 0 0%)",
             transition: {
-              delay: 6.5,
+              delay: 5,
               type: "spring",
               duration: 0.7,
               //   stiffness: 600,
@@ -34,11 +35,7 @@ const Card = () => {
           <div className="absolute w-10 top-0 right-0 border-l-[48px] border-l-transparent border-t-[48px] border-t-metal border-r-0 border-r-transparent"></div>
           <div className="absolute w-8 top-0 right-0 border-l-[44px] border-l-transparent border-t-[44px] border-t-white border-r-0 border-r-transparent"></div>
         </motion.div>
-        <div className="h-64"></div>
-        <motion.p className="text-justify mt-4 text-[13px] leading-5 text-left text-darkText">
-          前端開發三年六個月的資 歷。喜歡程式，從設計轉職 為工程師，在角色的轉換
-          中，建立良好的溝通與合 作模式。目前持續鑽研前 端技術，希望朝全端邁進。
-        </motion.p>
+        <Info />
       </div>
     </>
   );

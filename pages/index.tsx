@@ -12,11 +12,11 @@ const Home: NextPage = () => {
     <div className="relative overflow-hidden">
       <Grid>
         <>
-          <MainContent />
-          <Card />
           <div className="fixed w-screen h-screen left-0 top-0">
             <Welcome text="WELCOME" />
           </div>
+          <MainContent />
+          <Card />
         </>
       </Grid>
       <SvgBg />

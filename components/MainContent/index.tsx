@@ -14,7 +14,7 @@ const MainContent = () => {
           opacity: 1,
           clipPath: "circle(2600px at 260px 30px)",
           transition: {
-            delay: 5,
+            delay: 5.5,
             type: "spring",
             duration: 5,
             // stiffness: 700,
