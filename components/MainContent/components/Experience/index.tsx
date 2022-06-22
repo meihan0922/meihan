@@ -35,7 +35,7 @@ const Experience = () => {
       englishCompany: "LION TRAVEL",
       role: "前端工程師",
       img: "/lion.png",
-      desc: `雄獅集團為國際旅遊上市公司，致力於旅遊產業垂直整合，導入資訊化與知識管理系統，提供旅遊、餐飲、媒體、社群的服務。在職期間，經手元件庫、新品牌-欣傳媒前後台整合、搜尋引擎優化、機票產品群改版、旅天下＋欣聯航等品牌開發。各專案大都以react/typescript為基礎進行開發。`,
+      desc: `雄獅集團為國際旅遊上市公司，致力於旅遊產業垂直整合，導入資訊化與知識管理系統，提供旅遊、餐飲、媒體、社群的服務。在職期間，經手元件庫、新品牌-欣傳媒前後台整合、搜尋引擎優化、機票產品群改版、旅天下＋欣聯航等品牌專案。大都以react/typescript為基礎進行開發。`,
       work: [
         "共用模組庫開發(styled-component, storybook), Unit-testing(Jest)",
         "雄獅旅遊網搜尋引擎開發(css-modules, i18next, Redux), E2E testing(Cypress)",
@@ -49,6 +49,11 @@ const Experience = () => {
         "/lion/lion3.jpg",
         "/lion/lion2.jpg",
       ],
+      ref: {
+        雄獅旅遊: "https://www.liontravel.com/category/zh-tw/index",
+        薪傳媒: "https://www.xinmedia.com/",
+        旅天下: "https://www.uplantravel.com/category/zh-tw/index",
+      },
     },
   ];
 
@@ -76,7 +81,8 @@ const Experience = () => {
                     <p className="text-xs">{i.time}</p>
                   </div>
                 </div>
-                <p className="text-sm leading-6 col-span-5 tracking-tighter text-justify">
+
+                <p className="col-span-5 text-sm leading-6 tracking-tighter text-justify">
                   {i.desc}
                 </p>
               </div>
@@ -94,6 +100,27 @@ const Experience = () => {
                       <span>{item}</span>
                     </li>
                   ))}
+                  {i?.ref && (
+                    <li className="flex mt-6">
+                      {Object.entries(i.ref).map(([key, url], idx) => (
+                        <a
+                          key={key}
+                          href={url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={cx(
+                            "inline-block text-center flex-1 hover:text-metal text-stone font-bold",
+                            {
+                              "border-r border-r-stone":
+                                idx !== Object.keys(i.ref).length - 1,
+                            }
+                          )}
+                        >
+                          {key}
+                        </a>
+                      ))}
+                    </li>
+                  )}
                 </ul>
               </div>
             </div>

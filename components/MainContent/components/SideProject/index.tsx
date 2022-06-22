@@ -7,15 +7,10 @@ const Experience = () => {
     {
       name: "Ui Kit Storybook",
       desc: "參考behance上設計稿design system樣式，使用TypeScript、Framer-Motion、tailwind做一個虛擬的元件庫。",
-      images: [
-        "/lion/lion1.png",
-        "/lion/lion2.jpg",
-        "/lion/lion3.jpg",
-        "/lion/lion4.png",
-        "/lion/mobile_lion.png",
-      ],
+      images: ["/uikit/uikit1.jpg", "/uikit/uikit2.jpg"],
       demo: "https://62b1df8c95542b865b181c3c-uacrjzemwa.chromatic.com/",
       code: "https://github.com/meihan0922/ui-kit-storybook",
+      ref: "https://www.behance.net/gallery/89976895/ATOM-Wireframe-UI-KIT",
     },
     {
       name: "Ecommerce",
@@ -26,8 +21,9 @@ const Experience = () => {
         "/ecommerce/ecommerce3.jpg",
         "/ecommerce/ecommerce4.jpg",
       ],
-      demo: "https://ecommerce-kappa-orpin.vercel.app/",
+      demo: "https://62b1df8c95542b865b181c3c-bjwsmtrwuc.chromatic.com/?path=/story/example-all--all-story",
       code: "https://github.com/meihan0922/ecommerce",
+      ref: "https://github.com/adrianhajdin/ecommerce_sanity_stripe",
     },
   ];
 
@@ -49,6 +45,14 @@ const Experience = () => {
                     <p className="text-sm text-justify leading-5 tracking-tight">
                       {project.desc}
                     </p>
+                    <a
+                      href={project.ref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block text-center flex-1 hover:text-metal text-stone font-bold"
+                    >
+                      design&reference
+                    </a>
                   </div>
                   <div className="flex gap-2">
                     <a
