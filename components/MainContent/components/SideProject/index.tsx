@@ -30,13 +30,14 @@ const Experience = () => {
   return (
     <div className="">
       <Area title="Side Projects">
-        <div className="">
+        <div className="flex flex-col">
           {projects.map((project, idx) => {
             return (
               <div
                 key={project.name}
-                className={cx("flex justify-between gap-8", {
-                  "mb-12": projects.length - 1 !== idx,
+                className={cx("flex justify-between gap-5", {
+                  "pb-10 mb-10 border-b border-line":
+                    idx !== projects.length - 1,
                 })}
               >
                 <div className="flex-1 flex flex-col justify-between">

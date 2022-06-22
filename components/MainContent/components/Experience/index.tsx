@@ -56,76 +56,118 @@ const Experience = () => {
       },
     },
   ];
+  const early = [
+    {
+      time: "2018/10 - 2018/12",
+      company: "佳綸生技",
+      role: "UI設計師",
+      img: "/yonglin.svg",
+      desc: `鴻海集團佳綸生技，在職期間，為
+        臺大癌醫中心的病房專用平板製作ui及icon。`,
+    },
+    {
+      time: "2016/01 - 2017/6",
+      company: "砌禾數位動畫",
+      role: "3D動畫師",
+      img: "/cheer.jpeg",
+      desc: `在職期間完成愛奇藝<無敵小鹿>、<靈石冒險王>等多項3D動畫專案。`,
+    },
+  ];
 
   return (
     <div className="">
       <Area title="Experience">
-        <div className="">
-          {frontend.map((i, idx) => (
-            <div
-              key={i.company}
-              className={cx({ "mb-12": idx !== frontend.length - 1 })}
-            >
-              <div className="grid grid-cols-7 gap-4 text-sm text-darkText mb-6">
-                <div className="gap-4 flex col-span-2 items-center">
+        <>
+          <div className="flex flex-col">
+            {frontend.map((i, idx) => (
+              <div key={i.company} className="pb-10 mb-10 border-b border-line">
+                <div className="grid grid-cols-7 gap-4 text-sm text-darkText mb-6">
+                  <div className="gap-4 flex col-span-2 items-center">
+                    <div className="w-10 h-10">
+                      <img src={i.img} alt={i.company} />
+                    </div>
+                    <div>
+                      <p className="text-lg font-medium leading-6 mb-1.5">
+                        {i.company}
+                        <span className="text-sm ml-1">{i.englishCompany}</span>
+                      </p>
+
+                      <p className="mb-0.5">{i.role}</p>
+                      <p className="text-xs">{i.time}</p>
+                    </div>
+                  </div>
+
+                  <p className="col-span-5 text-sm leading-6 tracking-tighter text-justify">
+                    {i.desc}
+                  </p>
+                </div>
+                <div className="flex items-center">
+                  <div className="text-sm leading-5 w-[600px] h-[340px]">
+                    <Slider images={i.images} />
+                  </div>
+                  <ul className="text-[13px] flex-1 text-darkText py-4 pl-8">
+                    {i.work.map((item, idx) => (
+                      <li
+                        key={idx}
+                        className="flex gap-2 leading-5 mb-2 tracking-tight"
+                      >
+                        <span>{idx + 1}. </span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                    {i?.ref && (
+                      <li className="flex mt-6">
+                        {Object.entries(i.ref).map(([key, url], idx) => (
+                          <a
+                            key={key}
+                            href={url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={cx(
+                              "inline-block text-center flex-1 hover:text-metal text-stone font-bold",
+                              {
+                                "border-r border-r-stone":
+                                  idx !== Object.keys(i.ref).length - 1,
+                              }
+                            )}
+                          >
+                            {key}
+                          </a>
+                        ))}
+                      </li>
+                    )}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="flex">
+            {early.map((i, idx) => (
+              <div
+                key={i.company}
+                className={cx("flex-1 grid grid-cols-7 text-sm text-darkText", {
+                  "pr-10 mr-10 border-r border-r-line":
+                    idx !== early.length - 1,
+                })}
+              >
+                <div className="gap-4 flex col-span-3 items-center">
                   <div className="w-10 h-10">
                     <img src={i.img} alt={i.company} />
                   </div>
                   <div>
-                    <p className="text-lg font-medium leading-6 mb-1.5">
-                      {i.company}
-                      <span className="text-sm ml-1">{i.englishCompany}</span>
-                    </p>
+                    <p className="font-medium leading-6 mb-1">{i.company}</p>
 
-                    <p className="mb-0.5">{i.role}</p>
+                    <p className=" mb-0.5">{i.role}</p>
                     <p className="text-xs">{i.time}</p>
                   </div>
                 </div>
-
-                <p className="col-span-5 text-sm leading-6 tracking-tighter text-justify">
+                <p className="col-span-4 leading-6 tracking-tighter text-justify">
                   {i.desc}
                 </p>
               </div>
-              <div className="flex items-center">
-                <div className="text-sm leading-5 w-[600px] h-[340px]">
-                  <Slider images={i.images} />
-                </div>
-                <ul className="text-[13px] flex-1 text-darkText py-4 pl-8">
-                  {i.work.map((item, idx) => (
-                    <li
-                      key={idx}
-                      className="flex gap-2 leading-5 mb-2 tracking-tight"
-                    >
-                      <span>{idx + 1}. </span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                  {i?.ref && (
-                    <li className="flex mt-6">
-                      {Object.entries(i.ref).map(([key, url], idx) => (
-                        <a
-                          key={key}
-                          href={url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={cx(
-                            "inline-block text-center flex-1 hover:text-metal text-stone font-bold",
-                            {
-                              "border-r border-r-stone":
-                                idx !== Object.keys(i.ref).length - 1,
-                            }
-                          )}
-                        >
-                          {key}
-                        </a>
-                      ))}
-                    </li>
-                  )}
-                </ul>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </>
       </Area>
     </div>
   );

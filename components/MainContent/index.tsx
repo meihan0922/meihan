@@ -23,7 +23,7 @@ const MainContent = () => {
         }}
         className="z-10 w-full h-full mx-auto bg-gradient-to-r p-[3px] from-stone via-metal to-stone"
       >
-        <div className=" flex flex-col h-full bg-white p-8 pr-10 gap-12">
+        <div className=" flex flex-col h-full bg-white p-8 pr-10 gap-14">
           <div className="grid grid-cols-3 gap-10 pr-10">
             <Skill />
             <Education />
