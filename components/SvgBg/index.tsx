@@ -33,7 +33,7 @@ const SvgBg = () => {
             duration: 0.8,
           },
         }}
-        className="absolute -right-20 -z-10 bottom-[46%]"
+        className="absolute -right-20 -z-10 bottom-[54%]"
       >
         <SvgComponent width={500} height={500} />
       </motion.div>
