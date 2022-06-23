@@ -14,8 +14,8 @@ const Welcome = ({ text }: { text: string }) => {
       transition: {
         repeat: 1,
         repeatType: "reverse",
-        duration: 1,
-        delayChildren: 0.15,
+        duration: 0.7,
+        delayChildren: 0.6,
         staggerChildren: 0.1,
         staggerDirection: -1,
       },
@@ -28,13 +28,13 @@ const Welcome = ({ text }: { text: string }) => {
       x: 0,
       y: 0,
       transition: {
-        duration: 0.4,
+        duration: 0.17,
         ease: [0.6, 0.01, -0.05, 0.9],
       },
     },
     hidden: {
       opacity: 0.7,
-      y: 200,
+      y: 100,
     },
   };
 
@@ -50,7 +50,7 @@ const Welcome = ({ text }: { text: string }) => {
         <motion.span
           key={index}
           variants={child}
-          className="inline-block text-slate-700 text-8xl"
+          className="inline-block text-slate-700 text-4xl sm:text-7xl  lg:text-8xl"
         >
           {letter === " " ? "\u00A0" : letter}
         </motion.span>

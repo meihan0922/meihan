@@ -6,14 +6,14 @@ const Card = () => {
     <>
       <div className="relative -order-1 flex-col h-full col-span-12 text-base lg:order-1 lg:pt-64 lg:text-center bg-transparent lg:col-span-2">
         <motion.div
-          initial={{ opacity: 0, clipPath: "inset(0 0 0 100%)" }}
+          initial={{ opacity: 0.8, clipPath: "inset(0 0 0 100%)" }}
           animate={{
             opacity: 1,
             clipPath: "inset(0 0 0 0%)",
             transition: {
-              delay: 2,
+              delay: 1.8,
               type: "spring",
-              duration: 0.4,
+              duration: 0.7,
               //   stiffness: 600,
               //   damping: 40,
             },

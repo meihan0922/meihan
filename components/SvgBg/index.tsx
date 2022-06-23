@@ -1,6 +1,52 @@
 import { motion } from "framer-motion";
-
+import { useState, useLayoutEffect, useEffect } from "react";
+const responsive: { [key in KeyType]: number[] } = {
+  sm: [0, 640],
+  md: [641, 768],
+  lg: [769, 1024],
+  xl: [1023, 1280],
+  "2xl": [1281, 3000],
+};
+type KeyType = "sm" | "md" | "lg" | "xl" | "2xl";
+type mix = string | number;
+const svgSize: { [key in KeyType]: mix[] } = {
+  sm: ["120%", "140%"],
+  md: ["170%", "200%"],
+  lg: ["170%", "200%"],
+  xl: ["180%", "200%"],
+  "2xl": ["180%", "200%"],
+};
+const svgPos: { [key in KeyType]: mix[] } = {
+  sm: ["-left-32 -top-24", "-right-20 top-[20%]"],
+  md: ["-left-0 -top-24", "-right-20 top-[20%]"],
+  lg: ["left-10 -top-24", "-right-20 top-[20%]"],
+  xl: ["left-2 -top-24", "-right-20 top-[16%]"],
+  "2xl": ["left-12 -top-20", "-right-20 top-[18%]"],
+};
+const between = (n: number) => {
+  const obj = Object.entries(responsive).find(([key, [min, max]]) => {
+    if (n >= min && n <= max) return key;
+  });
+  return obj?.[0];
+};
 const SvgBg = () => {
+  const [device, setDevice] = useState<KeyType>("xl");
+  const handleResize = () => {
+    const width = document.querySelector("body")?.clientWidth;
+    if (width) {
+      const deviceSize = between(width) as KeyType;
+      if (deviceSize) setDevice(deviceSize);
+    }
+  };
+  useLayoutEffect(() => {
+    handleResize();
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <>
       <motion.div
@@ -13,28 +59,34 @@ const SvgBg = () => {
           scale: 1.2,
           transition: {
             // delay: 0.2,
-            duration: 0.8,
+            duration: 1,
           },
         }}
-        className="absolute -left-32 -z-10 -top-24"
+        className={`absolute -z-10  ${svgPos[device][0]}`}
       >
-        <SvgComponent width={650} height={650} />
+        <SvgComponent
+          width={svgSize[device][0] || 300}
+          height={svgSize[device][0] || 300}
+        />
       </motion.div>
       <motion.div
         initial={{ opacity: 0.7, rotate: 95, y: 150, x: 0, scale: 1.6 }}
         animate={{
-          opacity: 0.9,
+          opacity: 1,
           rotate: 105,
           y: 0,
           x: 0,
           scale: 1,
           transition: {
-            duration: 0.8,
+            duration: 1,
           },
         }}
-        className="absolute -right-20 -z-10 bottom-[54%]"
+        className={`absolute -z-10 ${svgPos[device][1]}`}
       >
-        <SvgComponent width={500} height={500} />
+        <SvgComponent
+          width={svgSize[device][1] || 300}
+          height={svgSize[device][1] || 300}
+        />
       </motion.div>
     </>
   );
@@ -57,8 +109,8 @@ const SvgComponent = ({
   width = 300,
   height = 300,
 }: {
-  width?: number;
-  height?: number;
+  width?: number | string;
+  height?: number | string;
 }) => (
   <motion.svg
     width={width}
