@@ -15,7 +15,7 @@ const Welcome = ({ text }: { text: string }) => {
         repeat: 1,
         repeatType: "reverse",
         duration: 0.7,
-        delayChildren: 0.6,
+        delayChildren: 0.35,
         staggerChildren: 0.1,
         staggerDirection: -1,
       },
