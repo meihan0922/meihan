@@ -4,8 +4,6 @@ import Grid from "@/components/Grid";
 import Card from "@/components/Card";
 import MainContent from "@/components/MainContent";
 import SvgBg from "@/components/SvgBg";
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
 const Home: NextPage = () => {
   return (

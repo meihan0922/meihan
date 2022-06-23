@@ -18,16 +18,16 @@ const Skills = () => {
   };
   return (
     <Area title="Skill">
-      <div className="flex flex-col gap-2.5">
+      <div className="flex flex-col gap-1.5 sm:gap-2.5">
         {Object.entries(allSkills).map(([title, skills]) => (
           <div key={title}>
             <p className="mb-1 text-sm leading-4">{title}</p>
-            <div className="ml-2 flex flex-wrap font-semibold">
+            <div className="ml-2 flex flex-wrap text-sm font-semibold md:text-base">
               {skills.map((i, idx) => (
                 <p key={i}>
                   <span>{i}</span>
                   {idx !== skills.length - 1 && (
-                    <span className="mx-1.5 text-sm">/</span>
+                    <span className="mx-1.5 text-xs md:text-sm">/</span>
                   )}
                 </p>
               ))}

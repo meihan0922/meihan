@@ -13,13 +13,13 @@ const Experience = () => {
       desc: `伊諾科技為遊戲開發公司，致力於跨國的遊戲平台與軟體研發，提供多平台、多語系的服務。
       在職期間，參與重構線上遊戲平台、維護後台與代理後台等四個專案。經手體育比賽即時資訊串流、前台會員服務、後台會員管理與金流。`,
       work: [
-        "React, Next.js, typescript 開發前台",
+        "React, Next.js, typescript",
         "stomp訂閱處理體育比賽即時資訊串流",
         "graphql data fetching、SWR api data cache",
+        "zustand、immutableHelper for state update",
         "reachUI, tailwind元件開發封裝",
-        "zustand、immutableHelper for state update 渲染效能優化",
         "framer-motion動畫特效製作",
-        "react-intl多語系",
+        "react-intl 多語系",
         "redux, sass維護後台專案",
       ],
       images: [
@@ -77,97 +77,95 @@ const Experience = () => {
   return (
     <div className="">
       <Area title="Experience">
-        <>
-          <div className="flex flex-col">
+        <div className="flex flex-col divide-y">
+          <div className="flex flex-col divide-y py-5 first:pt-0 last:pb-0 md:py-8 xl:py-10">
             {frontend.map((i, idx) => (
-              <div key={i.company} className="pb-10 mb-10 border-b border-line">
-                <div className="grid grid-cols-7 gap-4 text-sm text-darkText mb-6">
-                  <div className="gap-4 flex col-span-2 items-center">
-                    <div className="w-10 h-10">
+              <div
+                key={i.company}
+                className="py-4 first:pt-0 last:pb-0 md:py-6 xl:py-10"
+              >
+                <div className="grid grid-cols-7 gap-2 text-sm text-darkText mb-3 sm:gap-3 xl:gap-4 sm:mb-4 xl:mb-6">
+                  <div className="col-span-7 gap-3 flex md:gap-4 xl:col-span-2 items-center">
+                    <div className="w-9 h-9flex items-center md:w-10 md:h-10  xl:items-start">
                       <img src={i.img} alt={i.company} />
                     </div>
-                    <div>
-                      <p className="text-lg font-medium leading-6 mb-1.5">
+                    <div className="flex flex-col xl:gap-1.5">
+                      <p className="text-sm font-medium leading-6 md:text-lg">
                         {i.company}
                         <span className="text-sm ml-1">{i.englishCompany}</span>
                       </p>
-
-                      <p className="mb-0.5">{i.role}</p>
-                      <p className="text-xs">{i.time}</p>
+                      <div className="flex gap-1 items-center xl:gap-0.5 xl:flex-col xl:items-start">
+                        <p className="">{i.role}</p>
+                        <p className="text-xs">{i.time}</p>
+                      </div>
                     </div>
                   </div>
-
-                  <p className="col-span-5 text-sm leading-6 tracking-tighter text-justify">
+                  <p className=" col-span-7 tracking-tighter text-justify text-[13px] leading-6 row-span-2 sm:pl-2 md:text-sm md:leading-6 xl:p-0 xl:row-span-1 xl:col-span-5">
                     {i.desc}
                   </p>
                 </div>
-                <div className="flex items-center">
-                  <div className="text-sm leading-5 w-[600px] h-[340px]">
+                <div className="flex items-center gap-4 pl-4 pr-3 sm:pr-4 md:p-0 xl:gap-8 flex-col-reverse xl:flex-row">
+                  <div className="text-sm leading-5">
                     <Slider images={i.images} />
                   </div>
-                  <ul className="text-[13px] flex-1 text-darkText py-4 pl-8">
-                    {i.work.map((item, idx) => (
-                      <li
-                        key={idx}
-                        className="flex gap-2 leading-5 mb-2 tracking-tight"
-                      >
-                        <span>{idx + 1}. </span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
+                  <div>
+                    <ul className="lg:min-w-[220px] md:mr-5 md:ml-8 xl:mx-0 text-[13px] gap-1 flex flex-wrap md:gap-1.5 xl:gap-2 xl:mb-0 xl:flex-nowrap xl:flex-col text-darkText xl:flex-1">
+                      {i.work.map((item, idx) => (
+                        <li
+                          key={idx}
+                          className="flex before:content-['▪︎'] before:mr-2.5 pr-2 xl:pr-0  tracking-tight sm:w-[calc(50%-6px)] xl:w-full"
+                        >
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                     {i?.ref && (
-                      <li className="flex mt-6">
+                      <div className="flex mt-5 sm:mt-3 xl:mt-10 w-full divide-x-2 text-sm justify-end xl:justify-center">
                         {Object.entries(i.ref).map(([key, url], idx) => (
                           <a
                             key={key}
                             href={url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={cx(
-                              "inline-block text-center flex-1 hover:text-metal text-stone font-bold",
-                              {
-                                "border-r border-r-stone":
-                                  idx !== Object.keys(i.ref).length - 1,
-                              }
-                            )}
+                            className="inline-block w-1/3 sm:w-1/6 xl:w-full text-center hover:text-metal text-stone font-bold"
                           >
                             {key}
                           </a>
                         ))}
-                      </li>
+                      </div>
                     )}
-                  </ul>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
-          <div className="flex">
+          <div className="flex flex-col divide-y sm:flex-row sm:divide-y-0 sm:divide-x py-5 md:py-6 xl:py-10 sm:first:pt-0 sm:last:pb-0">
             {early.map((i, idx) => (
               <div
                 key={i.company}
-                className={cx("flex-1 grid grid-cols-7 text-sm text-darkText", {
-                  "pr-10 mr-10 border-r border-r-line":
-                    idx !== early.length - 1,
-                })}
+                className="flex-1 flex-col items-center lg:flex-row py-4 first:pt-0 last:pb-0 sm:py-0 sm:px-5 md:px-8 first:pl-0 last:pr-0 flex text-sm text-darkText gap-3 lg:gap-4"
               >
-                <div className="gap-4 flex col-span-3 items-center">
-                  <div className="w-10 h-10">
+                <div className="gap-3 md:gap-4 flex items-center w-full lg:min-w-[165px]">
+                  <div className="w-9 h-9 md:w-10 md:h-10">
                     <img src={i.img} alt={i.company} />
                   </div>
                   <div>
-                    <p className="font-medium leading-6 mb-1">{i.company}</p>
-
-                    <p className=" mb-0.5">{i.role}</p>
-                    <p className="text-xs">{i.time}</p>
+                    <p className="font-medium xl:leading-6 md:mb-1">
+                      {i.company}
+                    </p>
+                    <div className="flex md:flex-row lg:flex-col md:items-center gap-1 md:gap-2 lg:items-start lg:gap-0">
+                      <p className=" md:mb-0.5">{i.role}</p>
+                      <p className="text-xs">{i.time}</p>
+                    </div>
                   </div>
                 </div>
-                <p className="col-span-4 leading-6 tracking-tighter text-justify">
+                <p className="md:leading-6 tracking-tighter text-justify sm:pl-2 lg:p-0 text-xs leading-5 ">
                   {i.desc}
                 </p>
               </div>
             ))}
           </div>
-        </>
+        </div>
       </Area>
     </div>
   );

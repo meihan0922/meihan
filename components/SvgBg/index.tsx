@@ -1,5 +1,4 @@
-import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const SvgBg = () => {
   return (

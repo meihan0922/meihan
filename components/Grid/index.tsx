@@ -1,6 +1,6 @@
 const Grid = ({ children }: { children: JSX.Element }) => {
   return (
-    <div className="grid min-h-screen grid-cols-12 gap-6 px-5 py-8 md:pb-8 sm:px-5 md:px-14 lg:px-16 lg:mx-auto md:max-w-7xl">
+    <div className="grid min-h-screen grid-cols-12 gap-3 p-4 sm:px-5 sm:py-5 md:gap-3 md:py-6 md:px-6 md:pb-8 md:max-w-7xl lg:px-16 lg:mx-auto">
       {children}
     </div>
   );

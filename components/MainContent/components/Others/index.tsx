@@ -10,7 +10,10 @@ const Others = () => {
     <Area title="Others">
       <>
         {allSkills.map((i, idx) => (
-          <div key={i.txt} className="mb-1 flex text-sm text-darkText">
+          <div
+            key={i.txt}
+            className="mb-1 flex text-xs text-darkText md:text-sm"
+          >
             <p className="mr-2">{i.time}</p>
             <p>{i.txt}</p>
           </div>

@@ -50,51 +50,54 @@ export const Slider = ({ images }: { images: string[] }) => {
   };
 
   return (
-    <div className="relative w-full h-full overflow-hidden flex flex-col items-center justify-end">
-      <AnimatePresence initial={false} custom={direction}>
-        <motion.img
-          className="w-full h-[320px] cursor-pointer absolute top-0"
-          key={page}
-          src={images[imageIndex]}
-          custom={direction}
-          variants={variants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{
-            x: { type: "spring", stiffness: 300, damping: 30 },
-            opacity: { duration: 0.2 },
-          }}
-          drag="x"
-          dragConstraints={{ left: 0, right: 0 }}
-          dragElastic={1}
-          onDragEnd={(e, { offset, velocity }) => {
-            const swipe = swipePower(offset.x, velocity.x);
+    <div>
+      <div className="relative flex w-full h-full overflow-hidden items-center justify-end">
+        <AnimatePresence initial={false} custom={direction}>
+          <motion.img
+            className="cursor-pointer"
+            key={page}
+            src={images[imageIndex]}
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{
+              x: { type: "spring", stiffness: 300, damping: 30 },
+              opacity: { duration: 0.2 },
+            }}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={1}
+            onDragEnd={(e, { offset, velocity }) => {
+              const swipe = swipePower(offset.x, velocity.x);
 
-            if (swipe < -swipeConfidenceThreshold) {
-              paginate(1);
-            } else if (swipe > swipeConfidenceThreshold) {
-              paginate(-1);
-            }
-          }}
-        />
-      </AnimatePresence>
-      <div className="flex gap-1 justify-center z-10">
-        {Array.from({ length: images.length }, (v, i) => i).map((i) => (
-          <div
-            key={i}
-            className={cx("rounded-full w-2 h-2 bg-stone", {
-              "bg-metal": i === imageIndex,
-            })}
-          ></div>
-        ))}
-      </div>
-      {/* <div className="next" onClick={() => paginate(1)}>
+              if (swipe < -swipeConfidenceThreshold) {
+                paginate(1);
+              } else if (swipe > swipeConfidenceThreshold) {
+                paginate(-1);
+              }
+            }}
+          />
+        </AnimatePresence>
+
+        {/* <div className="next" onClick={() => paginate(1)}>
         {"‣"}
       </div>
       <div className="prev" onClick={() => paginate(-1)}>
         {"‣"}
       </div> */}
+      </div>
+      <div className="flex gap-1 justify-center z-10 mt-2.5">
+        {Array.from({ length: images.length }, (v, i) => i).map((i) => (
+          <div
+            key={i}
+            className={cx("rounded-full w-1.5 h-1.5 bg-stone lg:w-2 lg:h-2", {
+              "bg-metal": i === imageIndex,
+            })}
+          ></div>
+        ))}
+      </div>
     </div>
   );
 };
