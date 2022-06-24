@@ -30,7 +30,7 @@ const MainContent = () => {
         initial={{ opacity: 0, clipPath: "circle(0px at 0px -100%)" }}
         animate={{
           opacity: 1,
-          clipPath: `circle(${height + 30}px at 260px 30px)`,
+          clipPath: `circle(${height * 1.2}px at 260px 30px)`,
           transition: {
             delay: 2.1,
             type: "spring",
