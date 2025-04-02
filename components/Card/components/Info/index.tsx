@@ -17,7 +17,7 @@ const Info = () => {
       }}
     >
       <p className="text-justify text-xs leading-5 text-darkText md:text-[13px] lg:mt-4">
-        前端開發三年六個月的資歷。喜歡程式，從設計轉職為工程師，在角色的轉換
+        前端開發六年半的資歷。喜歡程式，從設計轉職為工程師，在角色的轉換
         中，建立良好的溝通與合 作模式。目前持續鑽研前端技術，希望朝全端邁進。
       </p>
       <div className="w-5 self-end md:w-8 lg:self-auto lg:w-auto">

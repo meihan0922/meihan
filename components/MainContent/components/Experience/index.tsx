@@ -5,7 +5,39 @@ import cx from "classnames";
 const Experience = () => {
   const frontend = [
     {
-      time: "2021/05 - 至今",
+      time: "2023/10 - 至今",
+      company: "尼克偲科技",
+      englishCompany: "NYX TECH",
+      role: "前端工程師",
+      img: "/nyx/logo.png",
+      desc: `尼克偲科技為 APP 社群媒體開發新創公司，致力於在中國社群市場中，占據一席之地。
+      在職期間，參與營運平台 CMS 平台。`,
+      work: [
+        "React, Next.js, typescript, Antd",
+        "zustand、immutableHelper for state update",
+        "reachUI, tailwind 元件開發封裝",
+      ],
+      images: ["/nyx/CMS.png"],
+    },
+    {
+      time: "2022/07 - 2023/09",
+      company: "核碼科技",
+      englishCompany: "HIPPO INFORMATION",
+      role: "前端工程師",
+      img: "/hippo/logo.png",
+      desc: `核碼科技為遊戲開發公司，致力於 CMS 平台開發。
+      在職期間，參與重構線上 CMS 平台。經手線上遊戲資訊串流、後台會員管理與金流。`,
+      work: [
+        "React, Next.js, typescript, Antd",
+        "zustand、immutableHelper for state update",
+        "reachUI, tailwind 元件開發封裝",
+        "framer-motion 動畫特效製作",
+        "react-intl 多語系",
+      ],
+      images: ["/hippo/CMS.png"],
+    },
+    {
+      time: "2021/05 - 2022/05",
       company: "伊諾科技",
       englishCompany: "INNO TECH",
       role: "前端工程師",
@@ -14,11 +46,11 @@ const Experience = () => {
       在職期間，參與重構線上遊戲平台、維護後台與代理後台等四個專案。經手體育比賽即時資訊串流、前台會員服務、後台會員管理與金流。`,
       work: [
         "React, Next.js, typescript",
-        "stomp訂閱處理體育比賽即時資訊串流",
+        "stomp 訂閱處理體育比賽即時資訊串流",
         "graphql data fetching、SWR api data cache",
         "zustand、immutableHelper for state update",
-        "reachUI, tailwind元件開發封裝",
-        "framer-motion動畫特效製作",
+        "reachUI, tailwind 元件開發封裝",
+        "framer-motion 動畫特效製作",
         "react-intl 多語系",
         "redux, sass維護後台專案",
       ],
